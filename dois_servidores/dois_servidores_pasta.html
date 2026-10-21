@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://www.avaeduc.com.br/pluginfile.php/9301679/mod_page/content/1/pagina.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedido</title>
+  <!--
+    Onde: UN3 S1, a visão única.
+    Por quê: quem pede vê uma tela só. Servidor A e Servidor B continuam em processos separados.
+    Como: este arquivo não contém endereço de B, limite nem relógio. Quem entrega a página é servidor_a.py.
+    Exemplo: o navegador abre http://127.0.0.1:5000/ e o botão Pagar fala só com A.
+    As cores abaixo não ensinam regra nova: verde, vermelho e amarelo só tornam visível
+    APROVADO, RECUSADO e FALHA, os três status que A devolve.
+  -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Calibri, "Segoe UI", sans-serif;
+      background: #f4f1ea;
+      color: #1c1a17;
+    }
+    main {
+      max-width: 520px;
+      margin: 48px auto;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid #ddd6c8;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    p.lede {
+      margin: 0 0 20px;
+      color: #5c564c;
+    }
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 20px;
+      padding: 8px 10px;
+    }
+    button {
+      margin-top: 14px;
+      font-size: 18px;
+      padding: 8px 16px;
+      background: #1c1a17;
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 22px;
+      padding: 14px;
+      display: none;
+    }
+    #resultado.APROVADO { background: #e5f2e5; display: block; }
+    #resultado.RECUSADO { background: #f8e6e6; display: block; }
+    #resultado.FALHA { background: #f8f0d8; display: block; }
+    #resultado h2 { margin: 0 0 8px; font-size: 22px; }
+    dl { margin: 12px 0 0; }
+    dt { font-weight: 700; margin-top: 8px; }
+    dd { margin: 0; }
+  </style>
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="T4SAN-XXJDB-425MW-YM3N9-3LLCJ",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"T4SAN-XXJDB-425MW-YM3N9-3LLCJ";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="zdoi5yaccikek2wyatda-f-c5e4824f9-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1497309","ak.ai":parseInt("943543",10),"ak.ol":"0","ak.cr":8,"ak.ipv":4,"ak.proto":"h2","ak.rid":"5c0e36dc","ak.r":49585,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":23759,"ak.gh":"2.20.132.5","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"","ak.t":"1792541894","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==SsxPjRJlP1vd97rOrnSmglYvtzDOZdl0VrJINqihZCi39AXF6a2z7085Rh5wXke4SW08+XS8PtiAG9OMzCTPBdFz3Ej2yWySL2PJ218/PdSrsTNU62f7xS+lS+oIodZQLCFPpg5PLP6Pk3o+v4/5Pd2c3gTNroGKbMP6NntoUrgm7XjT9acBe475/L6AVyWh/cjZOoy8e/Ewtv7YYn0LQZOx2VkyGRvgEh/ADoDB71T+FcQG3gf3fNJpE97wz1fmZzvXbx1oP92DjY/4qQUnogaVwxb/nT8NYejsPz0LjW5tGvEzX8BQU9AJrpeFzdYmq5rLGV7vFkv1pSRESTvxVD0xg7T6vUdl3BJ/krxN/0s1gIukNE8Gbazi7sicCfQxehV/ooEFqAUJU7UzRqGpwDQ3AWrabVWsxStT5U1MpUU=","ak.pv":"158","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="./dois_servidores_pasta_files/T4SAN-XXJDB-425MW-YM3N9-3LLCJ" rel="preload" as="script"><script id="boomr-scr-as" src="./dois_servidores_pasta_files/T4SAN-XXJDB-425MW-YM3N9-3LLCJ" async=""></script></head>
+<body>
+  <main>
+    <h1>Pedido</h1>
+    <p class="lede">Quem usa o serviço vê uma tela só. Servidor A e Servidor B continuam em processos separados.</p>
+    <form id="formulario">
+      <label for="valor">Valor (R$)</label>
+      <input id="valor" name="valor" type="number" min="0" step="0.01" value="120.00" required="">
+      <button type="submit">Pagar</button>
+    </form>
+    <section id="resultado" aria-live="polite">
+      <h2 id="titulo"></h2>
+      <p id="mensagem"></p>
+      <dl>
+        <dt>Pedido</dt><dd id="pedido"></dd>
+        <dt>Nome resolvido</dt><dd id="nome"></dd>
+        <dt>Identificador</dt><dd id="identificador"></dd>
+        <dt>Endereço</dt><dd id="endereco"></dd>
+        <dt>Relógio de A / relógio de B</dt><dd id="horas"></dd>
+        <dt>Ordem lógica</dt><dd id="ordem"></dd>
+      </dl>
+    </section>
+  </main>
+  <script>
+    // Onde: a tela pronta. O aluno não escreve este arquivo.
+    // Por quê: o exercício é a mensagem entre A e B, não a montagem da página.
+    const formulario = document.getElementById("formulario");
+    const painel = document.getElementById("resultado");
+
+    // Onde: apresentação do que A respondeu.
+    // Por quê: cada campo do rastro (pedido, nome, hora, L) ocupa um lugar fixo na tela.
+    // Como: acha o elemento pelo id e troca o texto.
+    // Exemplo: texto("endereco", "127.0.0.1:5001") preenche a linha Endereço.
+    function texto(id, valor) {
+      document.getElementById(id).textContent = valor;
+    }
+
+    // Onde: UN3 S4, o clique é o evento.
+    // Por quê: a programação por eventos reage a um fato. Aqui o fato é Pagar.
+    // Como: submit dispara a função. preventDefault impede o navegador de recarregar a página.
+    // Exemplo: clicar com 120 chama o fetch abaixo uma vez.
+    formulario.addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+
+      // Onde: UN3 S1, o usuário fala só com A.
+      // Por quê: a visão única seria quebrada se a página chamasse a porta de B.
+      // Como: fetch("/pedido") usa o mesmo endereço da página, http://127.0.0.1:5000/pedido.
+      // Exemplo: o corpo {"valor": 120} não cita servidor-b, porta 5001 nem o limite.
+      const valor = document.getElementById("valor").value;
+      const resposta = await fetch("/pedido", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ valor: Number(valor) }),
+      });
+
+      // Onde: UN3 S4, a página reage à resposta do serviço.
+      // Por quê: A já coordenou com B. A tela só mostra o fato devolvido.
+      // Como: o JSON de A vira o objeto dados.
+      // Exemplo: dados.status vale "APROVADO", "RECUSADO" ou "FALHA".
+      const dados = await resposta.json();
+
+      // Onde: UN3 S1, três desfechos visíveis.
+      // Por quê: aprovado e recusado vieram de B; falha significa que B não respondeu.
+      // Como: a classe CSS do painel é o próprio status.
+      // Exemplo: FALHA pinta o quadro de amarelo e o título vira "Não concluído".
+      painel.className = dados.status;
+      const titulos = {
+        APROVADO: "Aprovado",
+        RECUSADO: "Recusado",
+        FALHA: "Não concluído",
+      };
+      texto("titulo", titulos[dados.status] || dados.status);
+      texto("mensagem", dados.mensagem);
+
+      // Onde: UN3 S2, o lookup que A fez, mostrado para a turma.
+      // Por quê: a tela deixa visível nome, id estável e endereço atual.
+      // Como: copia os campos que servidor_a.py colocou no JSON.
+      // Exemplo: nome servidor-b, id id-autorizacao-001, endereço 127.0.0.1:5002 depois da troca de porta.
+      texto("pedido", dados.pedido);
+      texto("nome", dados.nome);
+      texto("identificador", dados.id);
+      texto("endereco", dados.endereco);
+
+      // Onde: UN3 S3, hora de parede contra ordem lógica.
+      // Por quê: a hora de B pode estar atrás e o L da resposta continua maior que o L do envio.
+      // Como: mostra as duas horas e, na linha de baixo, os três L.
+      // Exemplo: "00:31:45 / 00:01:45" e "envio L=2 resposta L=3 fim em A L=4".
+      // Se B não respondeu, hora_b vem vazio e L_resposta vem nulo: a tela mostra "sem resposta" e travessão.
+      texto("horas", dados.hora_a + "  /  " + (dados.hora_b || "sem resposta"));
+      texto(
+        "ordem",
+        "envio L=" + dados.L_envio +
+        "   resposta L=" + (dados.L_resposta == null ? "—" : dados.L_resposta) +
+        "   fim em A L=" + dados.L_final
+      );
+    });
+  </script>
+
+
+</body></html>

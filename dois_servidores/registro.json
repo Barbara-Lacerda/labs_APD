@@ -1,0 +1,7 @@
+{
+    "servidor_b": {
+        "id": "id-autorizacao-001",
+        "host": "127.0.0.1",
+        "porta": 5001
+    }
+}
